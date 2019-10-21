@@ -5,6 +5,7 @@ https://docs.google.com/spreadsheets/d/10w7UebIDqN6ChEpBwLDQmAgVZZhLtKvnrLeNnBjJ
 """
 import os
 import string
+import numpy as np
 
 from collections import OrderedDict
 
