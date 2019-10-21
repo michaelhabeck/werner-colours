@@ -12,7 +12,7 @@ from collections import OrderedDict
 TEST_LINE = '\\noindent\\textcolor{{{0}}}{{\\textbf{{{1}}}}}\\\\'
 TEST_LINE = '\\noindent\\colorbox{{{0}}}{{\\textcolor{{{2}}}{{\\textbf{{{1}}}}}}}\\\\'
 TEST_LINE = '\\noindent\\colorbox{{{0}}}{{\\textcolor{{{2}}}{{{{{1}}}}}}}\\\\'
-TEST_LINE = '\\noindent\\fcolorbox{{{2}}}{{{0}}}{{\\textcolor{{{2}}}{{{{{1}}}}}}}\\\\'
+TEST_LINE = '\\noindent\\fcolorbox{{{2}}}{{{0}}}{{\\textcolor{{{2}}}{{{{{1}}}}}}}\\hfill{{\\footnotesize {0}}}\\\\'
 
 TEST = ['\\documentclass[a4paper,12pt]{article}',
         '\\usepackage{geometry}',
@@ -21,7 +21,7 @@ TEST = ['\\documentclass[a4paper,12pt]{article}',
         '\\usepackage{xcolor}',
         '\\input{wernercolors}',
         '\\begin{document}',
-        '\\Huge',
+        '\\Large',
         '\\end{document}']
 
 class Color(object):
@@ -90,7 +90,7 @@ def make_testfile(colors, filename='./test.tex', luminance_threshold=(120,150)[0
 
     with open(filename,'w') as fh:
 
-        for color in colors:
+        for color in colors[:]:
 
             text_color = 'white' if color.luminance < luminance_threshold else 'black'
 
